@@ -8,7 +8,8 @@ html, body{
     padding: 0;
 }
 .header, .footer{
-    width: 900px;
+   
+    max-width: 94%;
     height: 90px;
     margin: auto;
     border: 4px solid #170076;
@@ -39,7 +40,8 @@ body{
     margin-bottom: 0;
 }
 #main{
-    width: 900px;
+    
+    max-width: 94%;
     margin: auto;
     border: 4px solid #008300;
     padding-top: 10px;
@@ -114,4 +116,58 @@ body{
 
 .footer{
     border: 4px solid #a72724;
+}
+
+@media (max-width: 987px) {
+    .main-content{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+}
+
+@media (max-width: 850px) {
+   .two-sidebar{
+       display: flex; 
+       flex-direction: column;  
+       gap: 10px;
+   }
+   .sidebar-1, .sidebar-2 {
+       flex-basis: auto;
+       height: 110px;
+   }
+
+   .content-wrapper-2{
+       display: flex;
+       justify-content: center;
+       min-height: 90%;
+       align-items: center;
+   }
+
+   .sidebars{
+       display: flex;
+       flex-direction: column;
+       min-width: 95%;
+       grid-gap: 10px;
+   }
+   .sidebar-text{
+       display: block;
+       writing-mode: horizontal-tb;
+       transform: none;
+   }
+}
+
+@media (max-width: 711px) {
+    .main-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-1, .sidebar-2, .sidebar-3{
+        height: 135px;
+    }
+    .main-sidebar{
+       flex-basis: 500px;
+    }
+    
 }
