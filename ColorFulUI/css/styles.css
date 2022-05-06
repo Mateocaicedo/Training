@@ -72,6 +72,12 @@
     align-items: center;
     margin: 0;
 }
+.portfolio{
+    background-color: var(--colornegro);
+}
+.portfolio p{
+    color:#a8d4dd ;
+}
 .items:hover{
     background-color: #3a494c;
     
@@ -230,6 +236,17 @@
 .items-2:hover{
 
     background-color: white;
+}
+
+.all{
+    background-color: white;
+}
+.all p{
+    color: rgb(148, 148, 148);
+}
+
+.web{
+    border: 1.7px solid white;
 }
 .nav-bar-2 a:hover{
     color: rgb(148, 148, 148);
@@ -593,6 +610,12 @@ input[type="text"]:focus, input[type="email"]:focus{
 }
 .wordpress{
     padding-left:15px ;
+}
+.bloom, .word{
+    color:#E8DA63;
+}
+.copy, .by{
+    color:#B4B3AB;
 }
 
 /*section-3*/
