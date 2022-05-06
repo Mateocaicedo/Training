@@ -1,0 +1,15 @@
+name: Milo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Milo: 
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Echo the message
+        run: |
+          echo "Hola Mateo"
+        
