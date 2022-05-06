@@ -5,9 +5,15 @@ on:
     branches:
       - main
 jobs:
-  hello_world:
+  Checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo the message
+      - name: Descargar Milo
+        run : |
+          curl -sf https://gobinaries.com/wawandco/milo/cmd/milo | sh
+      - name: Iniciar milo
         run: |
-          echo "Hola mateo"
+          milo init
+      - name: Realizar test
+        run: |
+          milo review .
