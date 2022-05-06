@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   hello_world:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Echo the message
         run: |
