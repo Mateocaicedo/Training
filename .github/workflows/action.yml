@@ -1,9 +1,8 @@
 name: MiloTest
 
 on:
-  push:
-    branches:
-      - main
+  [push]
+  
 jobs:
   Checkout:
     runs-on: ubuntu-latest
