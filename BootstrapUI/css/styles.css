@@ -2,7 +2,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 .background, .background-2{
-    background-image: url('/BootstrapUI/images/bg-masthead.jpg');
+    background-image: url('/images/bg-masthead.jpg');
     width: 100%;
     height: 650px;
     background-size: cover;
