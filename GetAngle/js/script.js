@@ -34,7 +34,11 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
 
 })
 function GetAngle(hours, minutes){
-    return  (30 * hours- 5.5 * minutes) % 360
+    if (hours == 12) {
+        return  ((30 * hours- 5.5 * minutes) % 360)-360
+    }else{
+        return  (30 * hours- 5.5 * minutes) % 360
+    }
 }
 
 
