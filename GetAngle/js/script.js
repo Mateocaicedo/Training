@@ -20,8 +20,6 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
     }else{
         alert.innerHTML=''
         let angle =  GetAngle(hours.value, min.value)
-        angle = Math.abs(angle)
-        console.log(angle); 
         result.innerHTML = angle+'°'
         let v_hours = '<p class="text-success m-0"> '+hours.value+ ' Hours <p/>'
         let v_minutes = '<p class="text-success m-0"> '+min.value+ ' Minutes <p/>'
@@ -35,9 +33,9 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
 })
 function GetAngle(hours, minutes){
     if (hours == 12) {
-        return  ((30 * hours- 5.5 * minutes) % 360)-360
+        return  Math.abs(((30 * hours- 5.5 * minutes) % 360)-360)
     }else{
-        return  (30 * hours- 5.5 * minutes) % 360
+        return  Math.abs((30 * hours- 5.5 * minutes) % 360)
     }
 }
 
