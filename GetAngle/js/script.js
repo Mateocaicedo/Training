@@ -1,3 +1,5 @@
+import { GetAngle } from './getAngle';
+
 let layout = document.getElementById("layout")
 layout.addEventListener('click',(e)=>{  
     e.preventDefault()
@@ -19,7 +21,7 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
         text.innerHTML ="Add hours and minutes to get an angle."
     }else{
         alert.innerHTML=''
-        let angle =  (30 * hours.value - 5.5 * min.value) % 360
+        let angle =  GetAngle(hours.value, min.value)
         angle = Math.abs(angle)
         console.log(angle); 
         result.innerHTML = angle+'°'
@@ -33,3 +35,5 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
     }
 
 })
+
+

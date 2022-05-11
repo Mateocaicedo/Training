@@ -1,0 +1,29 @@
+{
+  "name": "getangle",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Enters hours and minutes and returns an angle",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "angle",
+    "hours",
+    "minutes"
+  ],
+  "eslintConfig": {
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+   
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
