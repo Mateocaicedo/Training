@@ -1,10 +1,8 @@
 let layout = document.getElementById("layout")
-layout.addEventListener('click',(e)=>{  
-    e.preventDefault()
-    let data = document.getElementById("data")
-    data.classList.contains("row")?data.classList.remove("row"):data.classList.add("row");
-    
-})
+let data = document.getElementById("data")
+
+layout.addEventListener('click',()=>{  data.classList.contains("row")?data.classList.remove("row"):data.classList.add("row");})
+
 
 let send = document.getElementById("send").addEventListener('click',(e)=>{
     e.preventDefault()
@@ -27,7 +25,7 @@ let send = document.getElementById("send").addEventListener('click',(e)=>{
         text.classList.add("d-flex")
         text.classList.add("gap-1")
         text.classList.add("justify-content-center")
-
+        
     }
 
 })
@@ -38,5 +36,4 @@ function GetAngle(hours, minutes){
         return  Math.abs((30 * hours- 5.5 * minutes) % 360)
     }
 }
-
 

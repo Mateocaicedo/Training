@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head{
+    background-color:rgb(101, 176, 206);
+}
+.text-todo{
+    border-right: 2px solid white;
+    
+}
+.day{
+    font-size: 12px;
+}
+body a{
+    text-decoration: none;
+}
+.layout-add{
+    width: 93%;
+    margin:auto ;
+}
+.btn-primary{
+    background-color: rgb(101, 176, 206) !important;
+    border-color:rgb(101, 176, 206) !important;
+}
+.bi-trash3{
+   color: rgb(192, 54, 54);
+}
+table{
+    border: none;
+}
+.top{
+    background-color: #154360;
+    color: white;
+    font-weight: normal;
+}
+
+.content{
+    height: 400px;
+    overflow-y: scroll;
+}
+.bd{
+    background-color: rgb(239, 239, 239);
+}
+table tbody{
+    background-color: white;
+}
+.footer{
+    height: 230px;
+}
+table tr{
+    cursor: pointer;
+}
