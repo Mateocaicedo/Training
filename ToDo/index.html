@@ -10,6 +10,7 @@
     <title>ToDo List</title>
   </head>
   <body class="bd">
+    <!--Top bar Task-->
     <header class="shadow-lg py-4 px-5 mb-3  rounded-bottom head row m-0">
         <div class="row col d-flex justify-content-start  ">
             <div class="text-todo col-4 w-auto pe-4">
@@ -19,7 +20,7 @@
             </div>
             <div class="row col-5 ms-1 d-flex justify-content-center">
                 <div class="col-12">
-                    <p class="text-white m-0">0 Incomplete Tasks</p>
+                    <p class="text-white m-0" id="text-top-bar">0 Incomplete Tasks</p>
                 </div>
                 <div class="col-12 m-0 align-items-center">
                     <p id="date" class="text-white fw-light day m-0">Thursday 06, June 2019</p>
@@ -29,18 +30,50 @@
 
         <div id="works" class="row col d-flex justify-content-end align-content-center">
             
-                <a id="incomplete" href="#" class=" col-5 text-end text-white ">Incomplete Tasks</a>
-                <a id="completed" href="#" class=" col-5 text-end w-auto text-white fw-lighter   ">Complete Tasks</a>
+                <a id="incomplete" href="#" class=" col-5 text-end text-white  ">Incomplete Tasks</a>
+                <a id="completed" href="#" class=" col-5 text-end w-auto text-white fw-lighter ">Complete Tasks</a>
             
         </div>
         
     </header>
 
-    <section class="layout-add d-flex flex-column" id="completed-tasks">
+    <!--Content complete Task-->
+    <section class="layout-add d-flex flex-column d-none" id="completed-tasks">
+       
+
+        <div class="content mt-3 shadow-sm rounded">
+            <table class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
+                <thead>
+                    <tr class="top">
+                        <th class="py-3"></th>
+                        <th class="py-3 fw-normal w-50">Task</th>
+                        <th class="py-3 fw-normal">Completed By</th>
+                        <th class="py-3 fw-normal">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="rounded-bottom">
+                    <tr > 
+                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
+                        <td class="py-3 text-info bi">Client Meeting</td>
+                        <td class="py-3 ">08 May 19</td>
+                        <td class="d-flex gap-4 py-3 "><i  class="bi bi-trash3 btn-delete" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        
+    
+        
+    </section>
+
+
+
+    <!--Content incomplete Task-->
+    <section class="layout-add d-flex flex-column" id="incomplete-tasks">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-primary px-4 py-2 justify-content-end">Add Task</button>
+            <button id="add-task" type="button" class="btn btn-primary px-4 py-2 justify-content-end">Add Task</button>
         </div>
-
         <div class="content mt-3 shadow-sm rounded">
             <table class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
                 <thead>
@@ -51,158 +84,109 @@
                         <th class="py-3 fw-normal">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="rounded-bottom">
-                    <tr > 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3 ">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    
+                <tbody class="rounded-bottom" id="items">
+                         
                 </tbody>
             </table>
 
         </div>
-        
-    
-        
     </section>
 
 
-
-    <section class="layout-add d-flex flex-column d-none" id="incomplete-tasks">
-        
-
-        <div class="content mt-3 shadow-sm rounded">
-            <table class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
-                <thead>
-                    <tr class="top">
-                        <th class="py-3"></th>
-                        <th class="py-3 fw-normal w-50">Task</th>
-                        <th class="py-3 fw-normal">Completed By</th>
-                        <th class="py-3 fw-normal">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="rounded-bottom">
-                    <tr > 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3 ">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
-                    <tr> 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info">Client Meeting</td>
-                        <td class="py-3">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i class="bi bi-pencil"></i><i class="bi bi-trash3"></i></td>
-                    </tr>
+    <!--New Task-->
+    <section id="new-task" class="px-5 bg-white m-auto py-4 w-50 rounded-1 shadow-sm d-none">
+        <p class="fw-bold fs-3">
+            New Task
+        </p>
+    
+    
+        <form action="#" class="needs-validation" id="form" novalidate>
+            <div class="mb-3 row">
+                <div class="col">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title"  required>
                     
-                </tbody>
-            </table>
+                </div>
+                <div class="col">  
+                    <label for="limit" class="form-label">Limit Date</label>
+                    <input type="date" class="form-control " id="limit" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="4" required></textarea>
+            </div>
+            <div class="d-flex justify-content-end gap-3">
+                <button type="button" class="btn btn-light px-4 py-2 justify-content-end btn-cancel">Cancel</button>
+                <button type="submit" class="btn btn-primary px-4 py-2 justify-content-end btn-add">Add Task</button>
+            </div>
+        </form>
+    </section>
 
-        </div>
-        
+
+    <!--Edit Task-->
+    <section id="edit-task" class="px-5 bg-white m-auto py-4 w-50 rounded-1 shadow-sm d-none">
+        <p class="fw-bold fs-3">
+            EditTask
+        </p>
     
+    
+        <form action="#">
+            <div class="mb-3 row">
+                <div class="col">
+                    <label for="title-edit" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title-edit">
+                </div>
+                <div class="col">  
+                    <label for="limit-edit" class="form-label">Limit Date</label>
+                    <input type="date" class="form-control " id="limit-edit" >
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description-edit" class="form-label">Description</label>
+                <textarea class="form-control" id="description-edit" rows="4"></textarea>
+            </div>
+            <div class="d-flex justify-content-end gap-3">
+                <button type="button" class="btn btn-light px-4 py-2 justify-content-end">Cancel</button>
+                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end">Edit Task</button>
+            </div>
+        </form>
         
     </section>
-    <footer class="mt-5 pt-5">
+
+
+    <!--Footer-->
+    <footer id="footer-description"class="mt-5 pt-5">
         <div class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
             <p>Select Task to preview it</p>
         </div>
     </footer>
 
 
+
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">ç
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this task?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>
