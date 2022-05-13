@@ -36,6 +36,9 @@ table{
     color: white;
     font-weight: normal;
 }
+#title-task{
+    color: #154360;
+}
 
 .content{
     height: 400px;
@@ -52,4 +55,7 @@ table tbody{
 }
 .bi{
     cursor: pointer;
+}
+.desactive{
+    color:red
 }
