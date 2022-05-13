@@ -30,8 +30,8 @@
 
         <div id="works" class="row col d-flex justify-content-end align-content-center">
             
-                <a id="incomplete" href="#" class=" col-5 text-end text-white  ">Incomplete Tasks</a>
-                <a id="completed" href="#" class=" col-5 text-end w-auto text-white fw-lighter ">Complete Tasks</a>
+                <a id="incomplete" href="#" class=" col-8 text-end text-white  incomplete-top">Incomplete Tasks</a>
+                <a id="completed" href="#" class=" col-5 text-end w-auto text-white fw-lighter complete-top">Complete Tasks</a>
             
         </div>
         
@@ -42,22 +42,17 @@
        
 
         <div class="content mt-3 shadow-sm rounded">
-            <table class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
+            <table  class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
                 <thead>
                     <tr class="top">
                         <th class="py-3"></th>
                         <th class="py-3 fw-normal w-50">Task</th>
                         <th class="py-3 fw-normal">Completed By</th>
-                        <th class="py-3 fw-normal">Actions</th>
+                        <th class="py-3 fw-normal ">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="rounded-bottom">
-                    <tr > 
-                        <td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle"></i></td>
-                        <td class="py-3 text-info bi">Client Meeting</td>
-                        <td class="py-3 ">08 May 19</td>
-                        <td class="d-flex gap-4 py-3 "><i  class="bi bi-trash3 btn-delete" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
-                    </tr>
+                <tbody class="rounded-bottom" id="items-2">
+                   
                 </tbody>
             </table>
 
@@ -75,12 +70,12 @@
             <button id="add-task" type="button" class="btn btn-primary px-4 py-2 justify-content-end">Add Task</button>
         </div>
         <div class="content mt-3 shadow-sm rounded">
-            <table class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
+            <table id="table" class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
                 <thead>
                     <tr class="top">
                         <th class="py-3"></th>
                         <th class="py-3 fw-normal w-50">Task</th>
-                        <th class="py-3 fw-normal">Completed By</th>
+                        <th class="py-3 fw-normal">Complete By</th>
                         <th class="py-3 fw-normal">Actions</th>
                     </tr>
                 </thead>
@@ -118,7 +113,7 @@
             </div>
             <div class="d-flex justify-content-end gap-3">
                 <button type="button" class="btn btn-light px-4 py-2 justify-content-end btn-cancel">Cancel</button>
-                <button type="submit" class="btn btn-primary px-4 py-2 justify-content-end btn-add">Add Task</button>
+                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end btn-add">Add Task</button>
             </div>
         </form>
     </section>
@@ -131,24 +126,24 @@
         </p>
     
     
-        <form action="#">
+        <form action="#"  class="needs-validation" id="form-2" novalidate>
             <div class="mb-3 row">
                 <div class="col">
                     <label for="title-edit" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title-edit">
+                    <input type="text" class="form-control" id="title-edit" required>
                 </div>
                 <div class="col">  
                     <label for="limit-edit" class="form-label">Limit Date</label>
-                    <input type="date" class="form-control " id="limit-edit" >
+                    <input type="date" class="form-control " id="limit-edit" required>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="description-edit" class="form-label">Description</label>
-                <textarea class="form-control" id="description-edit" rows="4"></textarea>
+                <textarea class="form-control" id="description-edit" rows="4" required></textarea>
             </div>
             <div class="d-flex justify-content-end gap-3">
-                <button type="button" class="btn btn-light px-4 py-2 justify-content-end">Cancel</button>
-                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end">Edit Task</button>
+                <button type="button" class="btn btn-light px-4 py-2 justify-content-end btn-cancel-edit">Cancel</button>
+                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end btn-edit-edit">Edit Task</button>
             </div>
         </form>
         
@@ -157,8 +152,15 @@
 
     <!--Footer-->
     <footer id="footer-description"class="mt-5 pt-5">
-        <div class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
+        <div id="footer" class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
             <p>Select Task to preview it</p>
+        </div>
+        <div id="footer-2" class="bg-white footer d-flex flex-column text-muted px-5 py-5 d-none">
+            <div class="d-flex justify-content-between">
+                <h1 id="title-task" class="fs-2">Client Meeting</h1>
+                <p id="time-complete" class="text-center m-0 d-flex flex-column justify-content-center" >Was complete on </p>
+            </div>
+            <p id="description-task" class="text-dark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident quaerat corrupti nostrum cum voluptatum assumenda voluptates architecto iure unde ea! Iure, magnam. Incidunt similique numquam dolorum unde neque delectus error.</p>
         </div>
     </footer>
 
@@ -166,7 +168,7 @@
 
 
       <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">ç
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
     <div class="modal-dialog">
       <div class="modal-content">
@@ -179,7 +181,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Delete</button>
+          <button type="button" class="btn btn-primary " id="btn-delete-task" data-bs-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>
