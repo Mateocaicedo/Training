@@ -2,11 +2,20 @@
   "name": "todo",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "Mateo Caicedo <mcaicedo@wawand.co> (https://github.com/MateoCaicedoW)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }

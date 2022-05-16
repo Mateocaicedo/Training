@@ -1,42 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="./css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>ToDo List</title>
+    <%- include ('./partials/head.html')%>
   </head>
   <body class="bd">
 
-        <!--Top bar Task-->
-    <header class="shadow-lg py-4 px-5 mb-3 rounded-bottom head row m-0   ">
-        <div id="text-left" class="row col-6   d-flex justify-content-start w-auto ">
-            <div class="text-todo col-4  pe-4">
-                <h2 class="text-white fs-3 py-1 m-0">
-                    ToDo List 
-                </h2>
-            </div>
-            <div id ="text-bottom"class="row col  ms-1 d-flex justify-content-center ">
-                <div class="col-12">
-                    <p class="text-white m-0" id="text-top-bar">0 Incomplete Tasks</p>
-                </div>
-                <div class="col-12 m-0 align-items-center">
-                    <p id="date" class="text-white fw-light day m-0">Thursday 06, June 2019</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="works" class="row col d-flex justify-content-end align-content-center">
-            
-                <a id="incomplete" href="#" class=" col-8 text-end text-white  incomplete-top">Incomplete Tasks</a>
-                <a id="completed" href="#" class=" col-5 text-end w-auto text-white fw-lighter complete-top">Complete Tasks</a>
-            
-        </div>
-        
-    </header>
+     <!--Top Bar-->
+    <%- include ('./partials/navigation.html')%>
+   
 
     <!--Content complete Task-->
     <section class="layout-add d-flex flex-column d-none" id="completed-tasks">
@@ -176,25 +148,7 @@
   </div>
 
    <!--Footer-->
-   <footer id="footer-description"class="mt-5 pt-5 ">
-    <div id="footer" class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
-        <p>Select Task to preview it</p>
-    </div>
-    <div id="footer-2" class="bg-white footer d-flex flex-column text-muted px-3 py-3 px-sm-5 py-sm-5 d-none">
-        <div class="d-flex justify-content-between mb-4">
+   <%- include ('./partials/footer.html')%>
 
-            <h1 id="title-task" class="fs-2 me-5">Client Meeting</h1>
-            <p id="time-complete" class="text-center m-0 d-flex flex-column justify-content-center" >Was complete on </p>
-        </div>
-        <p id="description-task" class="text-dark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident quaerat corrupti nostrum cum voluptatum assumenda voluptates architecto iure unde ea! Iure, magnam. Incidunt similique numquam dolorum unde neque delectus error.</p>
-    </div>
-</footer>
-
-    
-    
-
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
   </body>
 </html>
