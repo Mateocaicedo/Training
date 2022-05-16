@@ -10,15 +10,16 @@
     <title>ToDo List</title>
   </head>
   <body class="bd">
-    <!--Top bar Task-->
-    <header class="shadow-lg py-4 px-5 mb-3  rounded-bottom head row m-0">
-        <div class="row col d-flex justify-content-start  ">
-            <div class="text-todo col-4 w-auto pe-4">
+
+        <!--Top bar Task-->
+    <header class="shadow-lg py-4 px-5 mb-3 rounded-bottom head row m-0   ">
+        <div id="text-left" class="row col-6   d-flex justify-content-start w-auto ">
+            <div class="text-todo col-4  pe-4">
                 <h2 class="text-white fs-3 py-1 m-0">
                     ToDo List 
                 </h2>
             </div>
-            <div class="row col-5 ms-1 d-flex justify-content-center">
+            <div id ="text-bottom"class="row col  ms-1 d-flex justify-content-center ">
                 <div class="col-12">
                     <p class="text-white m-0" id="text-top-bar">0 Incomplete Tasks</p>
                 </div>
@@ -41,7 +42,7 @@
     <section class="layout-add d-flex flex-column d-none" id="completed-tasks">
        
 
-        <div class="content mt-3 shadow-sm rounded">
+        <div class="content mt-3 shadow-sm rounded table-responsive ">
             <table  class="table table-hover   shadow-sm  rounded overflow-scroll table-fixed m-0"> 
                 <thead>
                     <tr class="top">
@@ -111,9 +112,9 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" rows="4" required></textarea>
             </div>
-            <div class="d-flex justify-content-end gap-3">
-                <button type="button" class="btn btn-light px-4 py-2 justify-content-end btn-cancel">Cancel</button>
-                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end btn-add">Add Task</button>
+            <div class="d-flex justify-content-end buttons">
+                <button type="button" class="btn btn-light px-4 py-2 me-sm-3 justify-content-end btn-cancel">Cancel</button>
+                <button type="button" class="btn btn-primary px-4 py-2 mb-3 mb-sm-0 justify-content-end btn-add">Add Task</button>
             </div>
         </form>
     </section>
@@ -141,29 +142,16 @@
                 <label for="description-edit" class="form-label">Description</label>
                 <textarea class="form-control" id="description-edit" rows="4" required></textarea>
             </div>
-            <div class="d-flex justify-content-end gap-3">
-                <button type="button" class="btn btn-light px-4 py-2 justify-content-end btn-cancel-edit">Cancel</button>
-                <button type="button" class="btn btn-primary px-4 py-2 justify-content-end btn-edit-edit">Edit Task</button>
+            <div class="d-flex justify-content-end  buttons">
+                <button type="button" class="btn btn-light px-4 py-2 me-sm-3 justify-content-end btn-cancel-edit">Cancel</button>
+                <button type="button" class="btn btn-primary px-4 py-2 mb-3 mb-sm-0  justify-content-end btn-edit-edit">Edit Task</button>
             </div>
         </form>
         
     </section>
 
 
-    <!--Footer-->
-    <footer id="footer-description"class="mt-5 pt-5">
-        <div id="footer" class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
-            <p>Select Task to preview it</p>
-        </div>
-        <div id="footer-2" class="bg-white footer d-flex flex-column text-muted px-5 py-5 d-none">
-            <div class="d-flex justify-content-between">
-                <h1 id="title-task" class="fs-2">Client Meeting</h1>
-                <p id="time-complete" class="text-center m-0 d-flex flex-column justify-content-center" >Was complete on </p>
-            </div>
-            <p id="description-task" class="text-dark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident quaerat corrupti nostrum cum voluptatum assumenda voluptates architecto iure unde ea! Iure, magnam. Incidunt similique numquam dolorum unde neque delectus error.</p>
-        </div>
-    </footer>
-
+   
 
 
 
@@ -187,8 +175,26 @@
     </div>
   </div>
 
+   <!--Footer-->
+   <footer id="footer-description"class="mt-5 pt-5 ">
+    <div id="footer" class="bg-white footer d-flex flex-column justify-content-center align-items-center text-muted">
+        <p>Select Task to preview it</p>
+    </div>
+    <div id="footer-2" class="bg-white footer d-flex flex-column text-muted px-3 py-3 px-sm-5 py-sm-5 d-none">
+        <div class="d-flex justify-content-between mb-4">
+
+            <h1 id="title-task" class="fs-2 me-5">Client Meeting</h1>
+            <p id="time-complete" class="text-center m-0 d-flex flex-column justify-content-center" >Was complete on </p>
+        </div>
+        <p id="description-task" class="text-dark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident quaerat corrupti nostrum cum voluptatum assumenda voluptates architecto iure unde ea! Iure, magnam. Incidunt similique numquam dolorum unde neque delectus error.</p>
+    </div>
+</footer>
+
+    
+    
+
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script type="module" src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

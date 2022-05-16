@@ -4,37 +4,37 @@ date.innerHTML = new Date().toDateString()
 
 let completed = document.getElementById('completed')
 let incomplete = document.getElementById('incomplete')
-let content_completed = document.getElementById("completed-tasks")
-let content_incomplete = document.getElementById("incomplete-tasks")
-let btn_add = document.getElementById("add-task")
+let contentCompleted = document.getElementById("completed-tasks")
+let contentIncomplete = document.getElementById("incomplete-tasks")
+let btnAdd = document.getElementById("add-task")
 let footer = document.getElementById("footer-description")
-let new_task_content = document.getElementById("new-task")
-let edit_task_content = document.getElementById("edit-task")
-let text_top_bar =document.getElementById("text-top-bar")
-let footer_1 = document.getElementById("footer")
-let footer_2 = document.getElementById("footer-2")
+let newtaskContent = document.getElementById("new-task")
+let edittaskContent= document.getElementById("edit-task")
+let texttopBar =document.getElementById("text-top-bar")
+let footer1 = document.getElementById("footer")
+let footer2 = document.getElementById("footer-2")
 let title = document.getElementById("title-task")
-let time_complete = document.getElementById("time-complete")
-let description_task = document.getElementById("description-task")
+let timeComplete = document.getElementById("time-complete")
+let descriptionTask = document.getElementById("description-task")
 
-//array de tareas
-let list_tasks =[]
+//array of Tasks
+let listTasks =[]
 function countTasks(active) {
-    let count_active = 0
-    let count_inactive = 0
-  for (const i of list_tasks) {
+    let countActive = 0
+    let countInactive = 0
+  for (const i of listTasks) {
       if (i.active == 0) {
-        count_active++
+        countActive++
       } else {
-        count_inactive++
+        countInactive++
       }
   }
 
   if (active==1) {
-      return text_top_bar.innerHTML= count_inactive+" Completed Tasks"
+      return texttopBar.innerHTML= countInactive+" Completed Tasks"
       
   }else if (active==0) {
-    return text_top_bar.innerHTML= count_active+" Incomplete Tasks"
+    return texttopBar.innerHTML= countActive+" Incomplete Tasks"
      
   }
     
@@ -45,13 +45,13 @@ completed.addEventListener('click',(e)=>{
     if(completed.classList.contains("fw-lighter") || !completed.classList.contains("fw-lighter")){
         completed.classList.remove("fw-lighter")
         incomplete.classList.add("fw-lighter")
-        content_completed.classList.remove("d-none")
-        content_incomplete.classList.add("d-none")
+        contentCompleted.classList.remove("d-none")
+        contentIncomplete.classList.add("d-none")
         footer.classList.remove("d-none")
-        new_task_content.classList.add("d-none")
-        edit_task_content.classList.add("d-none")
+        newtaskContent.classList.add("d-none")
+        edittaskContent.classList.add("d-none")
         countTasks(1)
-        Show_complete(list_tasks)
+        ShowComplete(listTasks)
     }
    
 })
@@ -62,21 +62,21 @@ incomplete.addEventListener('click',(e)=>{
     if(incomplete.classList.contains("fw-lighter") || !incomplete.classList.contains("fw-lighter")){
         incomplete.classList.remove("fw-lighter")
         completed.classList.add("fw-lighter")
-        content_incomplete.classList.remove("d-none")
-        content_completed.classList.add("d-none")
+        contentIncomplete.classList.remove("d-none")
+        contentCompleted.classList.add("d-none")
         footer.classList.remove("d-none")
-        new_task_content.classList.add("d-none")
-        edit_task_content.classList.add("d-none")
+        newtaskContent.classList.add("d-none")
+        edittaskContent.classList.add("d-none")
         countTasks(0)
-        Show_incompleted(list_tasks)
+        ShowIncompleted(listTasks)
     }
    
 })
-btn_add.addEventListener('click',(e)=>{
+btnAdd.addEventListener('click',(e)=>{
     e.preventDefault()
     footer.classList.add("d-none")
-    content_incomplete.classList.add("d-none")
-    new_task_content.classList.remove("d-none")
+    contentIncomplete.classList.add("d-none")
+    newtaskContent.classList.remove("d-none")
     completed.classList.remove("fw-lighter")
     incomplete.classList.remove("fw-lighter")
     completed.style.pointerEvents ="none";
@@ -84,11 +84,11 @@ btn_add.addEventListener('click',(e)=>{
     countTasks(0)
 })
 
-//Agregar tareas y cancelar
+//Add tasks and cancel
 let forms = document.getElementById('form')
-let btn_add_task = document.getElementsByClassName("btn-add")[0]
-let btn_cancel_task = document.getElementsByClassName("btn-cancel")[0]
-btn_add_task.addEventListener('click',(e)=>{
+let btnaddTask = document.getElementsByClassName("btn-add")[0]
+let btncancelTask = document.getElementsByClassName("btn-cancel")[0]
+btnaddTask.addEventListener('click',(e)=>{
     if (!forms.checkValidity()) {
         e.preventDefault()
         e.stopPropagation()
@@ -98,12 +98,12 @@ btn_add_task.addEventListener('click',(e)=>{
         let title = forms['title']
         let limit = forms['limit']
         let description = forms['description']
-        let object_data = new Data(title.value,limit.value,description.value)
-        list_tasks.push(object_data)
-        new_task_content.classList.add("d-none")
-        content_incomplete.classList.remove("d-none")
+        let objectData = new Data(title.value,limit.value,description.value)
+        listTasks.push(objectData)
+        newtaskContent.classList.add("d-none")
+        contentIncomplete.classList.remove("d-none")
         
-        Show_incompleted(list_tasks)
+        ShowIncompleted(listTasks)
 
         completed.style.pointerEvents ="auto";
         incomplete.style.pointerEvents ="auto";
@@ -120,7 +120,7 @@ btn_add_task.addEventListener('click',(e)=>{
 
 
 
-btn_cancel_task.addEventListener('click',(e)=>{
+btncancelTask.addEventListener('click',(e)=>{
     e.preventDefault();
     Cancel();
 },true)
@@ -129,74 +129,74 @@ btn_cancel_task.addEventListener('click',(e)=>{
 
 
 
-//Mostrar las tareas de incompletas
+//show the incomplete tasks
 let tbody = document.getElementById("items")
-let id_Complete=0
-let date_2 = ""
+let idComplete=0
+let date2 = ""
 tbody.addEventListener('click',(e)=>{
     let ev = e.target
   
     if (ev.classList.contains("btn-delete")) {
-        id_Complete=ev.parentElement.parentElement.getAttribute("id")
-        console.log(id_Complete);
+        idComplete=ev.parentElement.parentElement.getAttribute("id")
+        console.log(idComplete);
     }else if (ev.classList.contains("btn-edit")) {
             e.preventDefault()
             
-            id_Complete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-            for (const i of list_tasks) {
-                if (parseInt(i.idTask) == id_Complete) {
-                    let title_edit = document.getElementById("title-edit")
-                    let limit_edit = document.getElementById("limit-edit")
-                    let description_edit = document.getElementById("description-edit")
-                    title_edit.value = i.title
-                    limit_edit.value = i.limit
-                    description_edit.value = i.description
+            idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
+            for (const i of listTasks) {
+                if (parseInt(i.idTask) == idComplete) {
+                    let titleEdit = document.getElementById("title-edit")
+                    let limitEdit = document.getElementById("limit-edit")
+                    let descriptionEdit = document.getElementById("description-edit")
+                    titleEdit.value = i.title
+                    limitEdit.value = i.limit
+                    descriptionEdit.value = i.description
                 }
             }
-            console.log(list_tasks)
-            console.log(id_Complete);
-            content_incomplete.classList.add("d-none")
+            console.log(listTasks)
+            console.log(idComplete);
+            contentIncomplete.classList.add("d-none")
             footer.classList.add("d-none")
-            edit_task_content.classList.remove("d-none")
+            edittaskContent.classList.remove("d-none")
         
             completed.classList.remove("fw-lighter")
             incomplete.classList.remove("fw-lighter")
             completed.style.pointerEvents ="none";
             incomplete.style.pointerEvents ="none";
     } else if(ev.classList.contains("active")){
-        id_Complete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-        for (const i of list_tasks) {
-            if (parseInt(i.idTask) == id_Complete) {
+        idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
+        for (const i of listTasks) {
+            if (parseInt(i.idTask) == idComplete) {
                 i._active = 1
                 
-                Show_incompleted(list_tasks)
-                Show_complete(list_tasks)
+                ShowIncompleted(listTasks)
+                ShowComplete(listTasks)
 
-                console.log(list_tasks);
+                console.log(listTasks);
 
                 countTasks(0)
-                date_2 = new Date().toDateString()
+                date2 = new Date().toDateString()
             }
         }
 
     } else if(ev.classList.contains("show-description")){
-        id_Complete = parseInt(ev.parentElement.getAttribute("id"));  
+        idComplete = parseInt(ev.parentElement.getAttribute("id"));  
         
-        for (const i of list_tasks) {
-            console.log(i.idTask, id_Complete);
-            if (parseInt(i.idTask) == id_Complete) {
-                footer_1.classList.add("d-none")
-                footer_2.classList.remove("d-none")
+        for (const i of listTasks) {
+            console.log(i.idTask, idComplete);
+            if (parseInt(i.idTask) == idComplete) {
+                footer1.classList.add("d-none")
+                footer2.classList.remove("d-none")
                 title.innerHTML=i.title
-                time_complete.innerHTML= "Must be completed on "+i.limit
-                description_task.innerHTML=i.description
+                timeComplete.innerHTML= "Must be completed on "+i.limit
+                descriptionTask.innerHTML=i.description
                 
                 
-                Show_incompleted(list_tasks)
-                Show_complete(list_tasks)
+                ShowIncompleted(listTasks)
+                ShowComplete(listTasks)
                 
 
-                console.log(list_tasks);
+                console.log(listTasks);
             }
         }
     }
@@ -207,8 +207,8 @@ tbody.addEventListener('click',(e)=>{
 window.addEventListener('click',(e)=>{
 
     if(!e.target.classList.contains("show-description")){
-        footer_1.classList.remove("d-none")
-        footer_2.classList.add("d-none")
+        footer1.classList.remove("d-none")
+        footer2.classList.add("d-none")
     }
 
     
@@ -216,16 +216,16 @@ window.addEventListener('click',(e)=>{
 })
 
 
-function Show_incompleted(list_tasks){
+function ShowIncompleted(listTasks){
     let tabla = ""
-    for (let index = 0; index < list_tasks.length; index++) {
-        const element = list_tasks[index];
+    for (let index = 0; index < listTasks.length; index++) {
+        const element = listTasks[index];
         if (parseInt(element._active) == 0) { 
             tabla+='<tr id="'+element._idTask +'">'
             tabla+='<td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle active"></i></td>'
             tabla+='<td class="py-3 text-info bi show-description">'+element._title+'</td>'
             tabla+='<td class="py-3 ">'+ element._limit+'</td>'
-            tabla+='<td class="d-flex gap-4 py-3 "><i class="bi bi-pencil btn-edit"></i><i  class="bi bi-trash3 btn-delete "  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>'
+            tabla+='<td class="d-flex  py-3 "><i class="bi bi-pencil btn-edit me-3"></i><i  class="bi bi-trash3 btn-delete "  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>'
             tabla+='</tr>'
         }
     }
@@ -233,12 +233,12 @@ function Show_incompleted(list_tasks){
 
 }
 
-//Motrar y boorrar completas
-let tbody_2 = document.getElementById("items-2")
-function Show_complete(list_tasks){
+//show and delete completed tasks
+let tbody2 = document.getElementById("items-2")
+function ShowComplete(listTasks){
     let tabla = ""
-    for (let index = 0; index < list_tasks.length; index++) {
-        const element = list_tasks[index];
+    for (let index = 0; index < listTasks.length; index++) {
+        const element = listTasks[index];
         if (parseInt(element._active) == 1) { 
             tabla+='<tr id="'+element._idTask +'">'
             tabla+='<td class="py-3 d-flex justify-content-center"><i class="bi bi-x-circle desactive"></i></td>'
@@ -248,37 +248,37 @@ function Show_complete(list_tasks){
             tabla+='</tr>'
         }
     }
-    tbody_2.innerHTML = tabla
+    tbody2.innerHTML = tabla
 }
 
-tbody_2.addEventListener('click',(e)=>{
+tbody2.addEventListener('click',(e)=>{
     let ev = e.target
     if (ev.classList.contains("btn-delete")) {
-        id_Complete=ev.parentElement.parentElement.getAttribute("id")
-        console.log(id_Complete);
+        idComplete=ev.parentElement.parentElement.getAttribute("id")
+        console.log(idComplete);
     }else if(ev.classList.contains("desactive")){
-        id_Complete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-        for (const i of list_tasks) {
-            if (parseInt(i.idTask) == id_Complete) {
+        idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
+        for (const i of listTasks) {
+            if (parseInt(i.idTask) == idComplete) {
                 i._active = 0
-                Show_incompleted(list_tasks)
-                Show_complete(list_tasks)
+                ShowIncompleted(listTasks)
+                ShowComplete(listTasks)
                 countTasks(1)
             }
         }
     }else if(ev.classList.contains("show-description")){
-        id_Complete = parseInt(ev.parentElement.getAttribute("id"));  
-        for (const i of list_tasks) {
-            if (parseInt(i.idTask) == id_Complete) {
-                footer_1.classList.add("d-none")
-                footer_2.classList.remove("d-none")
+        idComplete = parseInt(ev.parentElement.getAttribute("id"));  
+        for (const i of listTasks) {
+            if (parseInt(i.idTask) == idComplete) {
+                footer1.classList.add("d-none")
+                footer2.classList.remove("d-none")
                 title.innerHTML=i.title
-                time_complete.innerHTML= "Was completed on "+date_2
-                description_task.innerHTML=i.description
+                timeComplete.innerHTML= "Was completed on "+date2
+                descriptionTask.innerHTML=i.description
                 
         
-                Show_incompleted(list_tasks)
-                Show_complete(list_tasks)
+                ShowIncompleted(listTasks)
+                ShowComplete(listTasks)
             }
         }
     }
@@ -292,49 +292,49 @@ function Cancel() {
     completed.classList.add("fw-lighter")
     footer.classList.remove("d-none")
 
-    new_task_content.classList.add("d-none")
-    content_incomplete.classList.remove("d-none")
+    newtaskContent.classList.add("d-none")
+    contentIncomplete.classList.remove("d-none")
     forms.reset()
-    forms_2.reset()
-    edit_task_content.classList.add("d-none")
+    forms2.reset()
+    edittaskContent.classList.add("d-none")
 }
 
 
 
-//Editar tareas y cancelar 
+//edit tasks and cancel
 
-let forms_2 = document.getElementById('form-2')
-let btn_cancel_edit = document.getElementsByClassName("btn-cancel-edit")[0]
-let btn_edit_edit = document.getElementsByClassName("btn-edit-edit")[0]
+let forms2 = document.getElementById('form-2')
+let btncancelEedit = document.getElementsByClassName("btn-cancel-edit")[0]
+let btneditEdit = document.getElementsByClassName("btn-edit-edit")[0]
 
-btn_cancel_edit.addEventListener('click',(e)=>{
+btncancelEedit.addEventListener('click',(e)=>{
     e.preventDefault();
     Cancel();
 },true)
 
-btn_edit_edit.addEventListener('click',(e)=>{
-    if (!forms_2.checkValidity()) {
+btneditEdit.addEventListener('click',(e)=>{
+    if (!forms2.checkValidity()) {
         e.preventDefault()
         e.stopPropagation()
-        forms_2.classList.add('was-validated')
+        forms2.classList.add('was-validated')
       }else{
-        forms_2.classList.remove('was-validated')
-        let title = forms_2['title-edit']
-        let limit = forms_2['limit-edit']
-        let description = forms_2['description-edit']
-        for (let index = 0; index < list_tasks.length; index++) {
-            if (list_tasks[index].idTask == id_Complete){
-                const element = list_tasks[index];
+        forms2.classList.remove('was-validated')
+        let title = forms2['title-edit']
+        let limit = forms2['limit-edit']
+        let description = forms2['description-edit']
+        for (let index = 0; index < listTasks.length; index++) {
+            if (listTasks[index].idTask == idComplete){
+                const element = listTasks[index];
                 element.limit = limit.value
                 element.title = title.value
                 element.description = description.value
                 console.log(element);
             }
         }
-        edit_task_content.classList.add("d-none")
-        content_incomplete.classList.remove("d-none")
+        edittaskContent.classList.add("d-none")
+        contentIncomplete.classList.remove("d-none")
         
-        Show_incompleted(list_tasks)
+        ShowIncompleted(listTasks)
 
         completed.style.pointerEvents ="auto";
         incomplete.style.pointerEvents ="auto";
@@ -342,28 +342,28 @@ btn_edit_edit.addEventListener('click',(e)=>{
         completed.classList.add("fw-lighter")
        
         footer.classList.remove("d-none")
-        forms_2.reset()
+        forms2.reset()
     }
 },true)
 
 
-let btn_delete_ =document.getElementById("btn-delete-task")
-btn_delete_.addEventListener('click',(e)=>{
+let btnDelete =document.getElementById("btn-delete-task")
+btnDelete.addEventListener('click',(e)=>{
     e.preventDefault()
 
-    console.log(list_tasks);
-    for (let index = 0; index < list_tasks.length; index++) {
-        if (list_tasks[index].idTask == id_Complete){
+    console.log(listTasks);
+    for (let index = 0; index < listTasks.length; index++) {
+        if (listTasks[index].idTask == idComplete){
             console.log("aqui estoy");
-            list_tasks.splice(index,1);
+            listTasks.splice(index,1);
 
         
         }
         
     }
-    console.log(list_tasks);
-    Show_incompleted(list_tasks)
-    Show_complete(list_tasks)
+    console.log(listTasks);
+    ShowIncompleted(listTasks)
+    ShowComplete(listTasks)
     if ( !completed.classList.contains("fw-lighter")) {
         countTasks(1)
     }else{
@@ -372,7 +372,7 @@ btn_delete_.addEventListener('click',(e)=>{
     
 },true)
 
-
+//class data
 class Data {
     static id = 0
     constructor(title,limit,description){
