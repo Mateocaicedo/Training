@@ -1,5 +1,8 @@
 //Require function show
-const show = require('./show')
+const show = require('./handlers')
+//Require function show
+const classTasks = require('./Tasks')
+const object = new classTasks()
 module.exports = {
     showDescription(idComplete,ev,listTasks,footer1,footer2,title,timeComplete,descriptionTask,tbody2,tbody,completed,date2){
         idComplete = parseInt(ev.parentElement.getAttribute("id"));  
@@ -17,8 +20,8 @@ module.exports = {
                 }
                 
                 descriptionTask.innerHTML=i.description
-                show.ShowIncompleted(listTasks,tbody)
-                show.ShowComplete(listTasks,tbody2)
+                object.ShowIncompleted(listTasks,tbody)
+                object.ShowComplete(listTasks,tbody2)
             }
         }
     }

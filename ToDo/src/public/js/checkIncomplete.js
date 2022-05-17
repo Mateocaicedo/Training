@@ -1,8 +1,8 @@
 //require function countTasks
 const activeFunction = require('./countTasks')
 //Require function show
-const show = require('./show')
-
+const classTasks = require('./Tasks')
+const object = new classTasks()
 module.exports = {
     Check(ev, idComplete,listTasks,tbody,tbody2,texttopBar,completed){
         idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
@@ -17,8 +17,8 @@ module.exports = {
                     activeFunction.countTasks(1,listTasks,texttopBar)
 
                 }
-                show.ShowIncompleted(listTasks,tbody)
-                show.ShowComplete(listTasks,tbody2)
+                object.ShowIncompleted(listTasks,tbody)
+                object.ShowComplete(listTasks,tbody2)
 
                 console.log(listTasks);
                 
