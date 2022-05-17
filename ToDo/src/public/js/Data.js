@@ -1,4 +1,4 @@
-export class Data {
+module.exports = class Data {
     static id = 0
     constructor(title,limit,description){
         this._title = title

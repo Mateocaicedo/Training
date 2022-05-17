@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "build": "browserify src/public/js/script.js -o src/public/js/bundle.js"
   },
   "keywords": [],
   "author": "Mateo Caicedo <mcaicedo@wawand.co> (https://github.com/MateoCaicedoW)",
@@ -16,6 +17,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "browserify": "^17.0.0",
     "nodemon": "^2.0.16"
   }
 }

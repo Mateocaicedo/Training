@@ -1,9 +1,28 @@
 //Require class Data
-import { Data } from './Data'
-//Date on the toolbar
+const data = require('./Data')
+//require function countTasks
+const activeFunction = require('./countTasks')
+//Require function show
+const show = require('./show')
+//Require function cancel
+const cancel = require('./cancel')
+//Require function addNewTask
+const addNewTaskFunction = require('./addNewTask')
+//Require function editCompleteTask
+const editCompleteTask = require('./editIncompleteTask')
+//Require functionCheck incomplete
+const checkIncomplete = require('./checkIncomplete')
+//require function showDescription
+const showDescription = require('./showDescription')
+//Require funtion edit
+const functionEdit =require('./functionEdit')
+//Require function delete
+const Delete =  require('./delete')
+//Date on the topbar
 let date = document.getElementById('date')
 date.innerHTML = new Date().toDateString()
 
+//define object HTML
 let completed = document.getElementById('completed')
 let incomplete = document.getElementById('incomplete')
 let contentCompleted = document.getElementById("completed-tasks")
@@ -21,26 +40,8 @@ let descriptionTask = document.getElementById("description-task")
 
 //array of Tasks
 let listTasks =[]
-function countTasks(active) {
-    let countActive = 0
-    let countInactive = 0
-  for (const i of listTasks) {
-      if (i.active == 0) {
-        countActive++
-      } else {
-        countInactive++
-      }
-  }
 
-  if (active==1) {
-      return texttopBar.innerHTML= countInactive+" Completed Tasks"
-      
-  }else if (active==0) {
-    return texttopBar.innerHTML= countActive+" Incomplete Tasks"
-     
-  }
-    
-}
+
 completed.addEventListener('click',(e)=>{
     e.preventDefault()
     
@@ -52,8 +53,8 @@ completed.addEventListener('click',(e)=>{
         footer.classList.remove("d-none")
         newtaskContent.classList.add("d-none")
         edittaskContent.classList.add("d-none")
-        countTasks(1)
-        ShowComplete(listTasks)
+        activeFunction.countTasks(1,listTasks,texttopBar)
+        show.ShowComplete(listTasks,tbody2)
     }
    
 })
@@ -69,8 +70,8 @@ incomplete.addEventListener('click',(e)=>{
         footer.classList.remove("d-none")
         newtaskContent.classList.add("d-none")
         edittaskContent.classList.add("d-none")
-        countTasks(0)
-        ShowIncompleted(listTasks)
+        activeFunction.countTasks(0,listTasks,texttopBar)
+        show.ShowIncompleted(listTasks,tbody)
     }
    
 })
@@ -83,53 +84,23 @@ btnAdd.addEventListener('click',(e)=>{
     incomplete.classList.remove("fw-lighter")
     completed.style.pointerEvents ="none";
     incomplete.style.pointerEvents ="none";
-    countTasks(0)
+    activeFunction.countTasks(0,listTasks,texttopBar)
 })
 
 //Add tasks and cancel
 let forms = document.getElementById('form')
 let btnaddTask = document.getElementsByClassName("btn-add")[0]
 let btncancelTask = document.getElementsByClassName("btn-cancel")[0]
+//button add task
 btnaddTask.addEventListener('click',(e)=>{
-    if (!forms.checkValidity()) {
-        e.preventDefault()
-        e.stopPropagation()
-        forms.classList.add('was-validated')
-      }else{
-        forms.classList.remove('was-validated')
-        let title = forms['title']
-        let limit = forms['limit']
-        let description = forms['description']
-        let objectData = new Data(title.value,limit.value,description.value)
-        listTasks.push(objectData)
-        newtaskContent.classList.add("d-none")
-        contentIncomplete.classList.remove("d-none")
-        
-        ShowIncompleted(listTasks)
-
-        completed.style.pointerEvents ="auto";
-        incomplete.style.pointerEvents ="auto";
-        incomplete.classList.remove("fw-lighter")
-        completed.classList.add("fw-lighter")
-       
-        footer.classList.remove("d-none")
-        
-        countTasks(0)
-        forms.reset()
-      }
-    
+    listTasks= addNewTaskFunction.addTask(e,forms,listTasks,completed,incomplete,footer,tbody,texttopBar,newtaskContent,contentIncomplete)
+    console.log(listTasks);
 },true)
-
-
-
+//button cancel in addtask
 btncancelTask.addEventListener('click',(e)=>{
     e.preventDefault();
-    Cancel();
+    cancel(completed,incomplete,footer,newtaskContent,contentIncomplete,forms,forms2,edittaskContent)
 },true)
-
-
-
-
 
 //show the incomplete tasks
 let tbody = document.getElementById("items")
@@ -137,240 +108,83 @@ let idComplete=0
 let date2 = ""
 tbody.addEventListener('click',(e)=>{
     let ev = e.target
-  
+//button delete incomplete task
     if (ev.classList.contains("btn-delete")) {
         idComplete=ev.parentElement.parentElement.getAttribute("id")
-        console.log(idComplete);
+ //buttn edit incomplete task       
     }else if (ev.classList.contains("btn-edit")) {
             e.preventDefault()
-            
-            idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-            for (const i of listTasks) {
-                if (parseInt(i.idTask) == idComplete) {
-                    let titleEdit = document.getElementById("title-edit")
-                    let limitEdit = document.getElementById("limit-edit")
-                    let descriptionEdit = document.getElementById("description-edit")
-                    titleEdit.value = i.title
-                    limitEdit.value = i.limit
-                    descriptionEdit.value = i.description
-                }
-            }
-            console.log(listTasks)
-            console.log(idComplete);
-            contentIncomplete.classList.add("d-none")
-            footer.classList.add("d-none")
-            edittaskContent.classList.remove("d-none")
-        
-            completed.classList.remove("fw-lighter")
-            incomplete.classList.remove("fw-lighter")
-            completed.style.pointerEvents ="none";
-            incomplete.style.pointerEvents ="none";
+           idComplete= editCompleteTask.edit(idComplete,ev,listTasks,contentIncomplete,footer,edittaskContent,incomplete,completed)
+//btn check incomplete task
     } else if(ev.classList.contains("active")){
-        idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-        for (const i of listTasks) {
-            if (parseInt(i.idTask) == idComplete) {
-                i._active = 1
-                
-                ShowIncompleted(listTasks)
-                ShowComplete(listTasks)
-
-                console.log(listTasks);
-
-                countTasks(0)
-                date2 = new Date().toDateString()
-            }
-        }
-
-    } else if(ev.classList.contains("show-description")){
-        idComplete = parseInt(ev.parentElement.getAttribute("id"));  
+        date2 = new Date().toDateString()
+        checkIncomplete.Check(ev,idComplete,listTasks,tbody,tbody2,texttopBar,completed)
         
-        for (const i of listTasks) {
-            console.log(i.idTask, idComplete);
-            if (parseInt(i.idTask) == idComplete) {
-                footer1.classList.add("d-none")
-                footer2.classList.remove("d-none")
-                title.innerHTML=i.title
-                timeComplete.innerHTML= "Must be completed on "+i.limit
-                descriptionTask.innerHTML=i.description
-                
-                
-                ShowIncompleted(listTasks)
-                ShowComplete(listTasks)
-                
-
-                console.log(listTasks);
-            }
-        }
+//show description in the footer
+    } else if(ev.classList.contains("show-description")){
+        showDescription.showDescription(idComplete,ev,listTasks,footer1,footer2,title,timeComplete,descriptionTask,tbody2,tbody,completed,date2)
     }
     
     
 },true)
-
+//click in anywhere on the screen
 window.addEventListener('click',(e)=>{
-
     if(!e.target.classList.contains("show-description")){
         footer1.classList.remove("d-none")
         footer2.classList.add("d-none")
     }
-
-    
-
 })
 
 
-function ShowIncompleted(listTasks){
-    let tabla = ""
-    for (let index = 0; index < listTasks.length; index++) {
-        const element = listTasks[index];
-        if (parseInt(element._active) == 0) { 
-            tabla+='<tr id="'+element._idTask +'">'
-            tabla+='<td class="py-3 d-flex justify-content-center"><i class="bi bi-check-circle active"></i></td>'
-            tabla+='<td class="py-3 text-info bi show-description">'+element._title+'</td>'
-            tabla+='<td class="py-3 ">'+ element._limit+'</td>'
-            tabla+='<td class="d-flex  py-3 "><i class="bi bi-pencil btn-edit me-3"></i><i  class="bi bi-trash3 btn-delete "  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>'
-            tabla+='</tr>'
-        }
-    }
-    tbody.innerHTML =tabla
 
-}
 
 //show and delete completed tasks
 let tbody2 = document.getElementById("items-2")
-function ShowComplete(listTasks){
-    let tabla = ""
-    for (let index = 0; index < listTasks.length; index++) {
-        const element = listTasks[index];
-        if (parseInt(element._active) == 1) { 
-            tabla+='<tr id="'+element._idTask +'">'
-            tabla+='<td class="py-3 d-flex justify-content-center"><i class="bi bi-x-circle desactive"></i></td>'
-            tabla+='<td class="py-3 text-info bi show-description">'+element._title+'</td>'
-            tabla+='<td class="py-3 ">'+ element._limit+'</td>'
-            tabla+='<td class="d-flex gap-4 py-3 ps-4 "><i  class="bi bi-trash3 btn-delete "  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>'
-            tabla+='</tr>'
-        }
-    }
-    tbody2.innerHTML = tabla
-}
-
 tbody2.addEventListener('click',(e)=>{
     let ev = e.target
+    //button delete of completed task
     if (ev.classList.contains("btn-delete")) {
         idComplete=ev.parentElement.parentElement.getAttribute("id")
-        console.log(idComplete);
+       
+    //button x on completed task
     }else if(ev.classList.contains("desactive")){
-        idComplete = parseInt(ev.parentElement.parentElement.getAttribute("id"));  
-        for (const i of listTasks) {
-            if (parseInt(i.idTask) == idComplete) {
-                i._active = 0
-                ShowIncompleted(listTasks)
-                ShowComplete(listTasks)
-                countTasks(1)
-            }
-        }
+        checkIncomplete.Check(ev,idComplete,listTasks,tbody,tbody2,texttopBar,completed)
+
+    //show description in the footer
     }else if(ev.classList.contains("show-description")){
-        idComplete = parseInt(ev.parentElement.getAttribute("id"));  
-        for (const i of listTasks) {
-            if (parseInt(i.idTask) == idComplete) {
-                footer1.classList.add("d-none")
-                footer2.classList.remove("d-none")
-                title.innerHTML=i.title
-                timeComplete.innerHTML= "Was completed on "+date2
-                descriptionTask.innerHTML=i.description
-                
-        
-                ShowIncompleted(listTasks)
-                ShowComplete(listTasks)
-            }
-        }
+        showDescription.showDescription(idComplete,ev,listTasks,footer1,footer2,title,timeComplete,descriptionTask,tbody2,tbody,completed,date2)
     }
 },true)
 
-
-function Cancel() {
-    completed.style.pointerEvents ="auto";
-    incomplete.style.pointerEvents ="auto";
-    incomplete.classList.remove("fw-lighter")
-    completed.classList.add("fw-lighter")
-    footer.classList.remove("d-none")
-
-    newtaskContent.classList.add("d-none")
-    contentIncomplete.classList.remove("d-none")
-    forms.reset()
-    forms2.reset()
-    edittaskContent.classList.add("d-none")
-}
 
 
 
 //edit tasks and cancel
-
 let forms2 = document.getElementById('form-2')
 let btncancelEedit = document.getElementsByClassName("btn-cancel-edit")[0]
 let btneditEdit = document.getElementsByClassName("btn-edit-edit")[0]
-
+//btn cancel in edit content
 btncancelEedit.addEventListener('click',(e)=>{
     e.preventDefault();
-    Cancel();
+    cancel(completed,incomplete,footer,newtaskContent,contentIncomplete,forms,forms2,edittaskContent);
 },true)
-
+//btn edit 
 btneditEdit.addEventListener('click',(e)=>{
     if (!forms2.checkValidity()) {
         e.preventDefault()
         e.stopPropagation()
         forms2.classList.add('was-validated')
-      }else{
-        forms2.classList.remove('was-validated')
-        let title = forms2['title-edit']
-        let limit = forms2['limit-edit']
-        let description = forms2['description-edit']
-        for (let index = 0; index < listTasks.length; index++) {
-            if (listTasks[index].idTask == idComplete){
-                const element = listTasks[index];
-                element.limit = limit.value
-                element.title = title.value
-                element.description = description.value
-                console.log(element);
-            }
-        }
-        edittaskContent.classList.add("d-none")
-        contentIncomplete.classList.remove("d-none")
-        
-        ShowIncompleted(listTasks)
-
-        completed.style.pointerEvents ="auto";
-        incomplete.style.pointerEvents ="auto";
-        incomplete.classList.remove("fw-lighter")
-        completed.classList.add("fw-lighter")
-       
-        footer.classList.remove("d-none")
-        forms2.reset()
+    }else{
+        listTasks =functionEdit.editFunction(forms2,listTasks,idComplete,edittaskContent,contentIncomplete,completed,incomplete,footer,tbody)
     }
 },true)
 
-
+//btn delete in modal
 let btnDelete =document.getElementById("btn-delete-task")
 btnDelete.addEventListener('click',(e)=>{
     e.preventDefault()
-
-    console.log(listTasks);
-    for (let index = 0; index < listTasks.length; index++) {
-        if (listTasks[index].idTask == idComplete){
-            console.log("aqui estoy");
-            listTasks.splice(index,1);
-
-        
-        }
-        
-    }
-    console.log(listTasks);
-    ShowIncompleted(listTasks)
-    ShowComplete(listTasks)
-    if ( !completed.classList.contains("fw-lighter")) {
-        countTasks(1)
-    }else{
-        countTasks(0)
-    }
-    
+    listTasks = Delete.Delete(listTasks,completed,texttopBar,idComplete)
+    show.ShowIncompleted(listTasks,tbody)
+    show.ShowComplete(listTasks,tbody2)
 },true)
 
