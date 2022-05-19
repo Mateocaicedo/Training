@@ -18,16 +18,37 @@ For this proyect we need dependencies such as:
 #### Node
 Install Node.js [here](https://nodejs.org/es/download/)
 
-#### Install node modules
-
+#### Install
+1. Clone the repo
+   ```sh
+   git clone https://github.com/MateoCaicedoW/Training
+   ```
 For install node modules we have to enter the following commands in the terminal
-1. npm install ejs
-2. npm install express
-3. npm install morgan
-4. npm install --save-dev nodemon
-5. npm install --save-dev browserify
-6. npm install jest
+1. ```sh
+   npm install ejs
+   ``` 
+2. 
+```sh
+    npm install express
+   ```  
+
+3. ```sh 
+    npm install morgan
+    ```  
+
+4. ```sh 
+    npm install --save-dev nodemon
+    ``` 
+
+5. ```sh  
+     npm install --save-dev browserify
+    ``` 
+
+6. ```sh 
+    npm install jest
+    ``` 
 
 
 
-#### 🧏🏻‍♂️ And that would be all, these dependencies are installed after having cloned the repository.🧏🏻‍♂️
+## Contributing
+Mateo Caicedo
