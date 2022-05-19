@@ -2,7 +2,7 @@
 <img src="src/public/images/img.png" alt="My cool logo"/>
 
 ## About the project
-This project consists of an application that allows you to add, delete, edit, complete and activate/deactivate assigned tasks. 
+This project consists of an application that allows you to add, delete, edit, complete and activate/desactivate assigned tasks. 
 
 ## Built with
 
