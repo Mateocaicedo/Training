@@ -27,8 +27,8 @@ For install node modules we have to enter the following commands in the terminal
 1. ```sh
    npm install ejs
    ``` 
-2. 
-```sh
+   
+2. ```sh
     npm install express
    ```  
 
