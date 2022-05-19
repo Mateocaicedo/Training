@@ -1,7 +1,6 @@
 //require function countTasks
 const activeFunction = require('./countTasks')
-//Require function show
-const show = require('./show')
+
 
 module.exports = class Tasks {
     static id = 0

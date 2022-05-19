@@ -1,8 +1,7 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 //require function countTasks
 const activeFunction = require('./countTasks')
-//Require function show
-const show = require('./show')
+
 
 module.exports = class Tasks {
     static id = 0
@@ -149,7 +148,7 @@ module.exports = class Tasks {
     }
 }
 
-},{"./countTasks":5,"./show":8}],2:[function(require,module,exports){
+},{"./countTasks":5}],2:[function(require,module,exports){
 //Require class Data
 const classTasks = require('./Tasks')
 //require const activeFunction = require('./countTasks')
@@ -243,7 +242,7 @@ handlers.btncancelEdit.addEventListener('click',(e)=>{
 
 
 
-},{"./Tasks":1,"./cancel":3,"./checkIncomplete":4,"./handlers":7,"./showDescription":9}],3:[function(require,module,exports){
+},{"./Tasks":1,"./cancel":3,"./checkIncomplete":4,"./handlers":7,"./showDescription":8}],3:[function(require,module,exports){
 function Cancel(completed,incomplete, footer,newtaskContent,contentIncomplete,forms,forms2,edittaskContent) {
     completed.style.pointerEvents ="auto";
     incomplete.style.pointerEvents ="auto";
@@ -344,8 +343,7 @@ module.exports = {
 },{}],7:[function(require,module,exports){
 //require function countTasks
 const activeFunction = require('./countTasks')
-//Require function show
-const show = require('./show')
+
 //Require class Data
 const classTasks = require('./Tasks')
 //Require function editCompleteTask
@@ -492,12 +490,7 @@ module.exports = {
    }
 }
 
-},{"./Tasks":1,"./countTasks":5,"./editIncompleteTask":6,"./show":8}],8:[function(require,module,exports){
-module.exports = {
-   
-       
-}
-},{}],9:[function(require,module,exports){
+},{"./Tasks":1,"./countTasks":5,"./editIncompleteTask":6}],8:[function(require,module,exports){
 //Require function show
 const show = require('./handlers')
 //Require function show
