@@ -1,5 +1,5 @@
 # ToDo App 
-<img src="src/public/images/img.jpg" alt="My cool logo"/>
+<img src="src/public/images/img.png" alt="My cool logo"/>
 ## About the project
 This project consists of an application that allows you to add, delete, edit, complete and activate/deactivate assigned tasks. this project is built with html, css, js and node.
 ##Setup
