@@ -30,4 +30,4 @@ For install node modules we have to enter the following commands in the terminal
 
 
 
-## 🧏🏻‍♂️ And that would be all, these dependencies are installed after having cloned the repository.🧏🏻‍♂️
+#### 🧏🏻‍♂️ And that would be all, these dependencies are installed after having cloned the repository.🧏🏻‍♂️
