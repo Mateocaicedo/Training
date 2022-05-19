@@ -16,8 +16,7 @@ This project consists of an application that allows you to add, delete, edit, co
 For this proyect we need dependencies such as:
 
 #### Node
-Node.js  
-- install [here](https://nodejs.org/es/download/)
+Install Node.js [here](https://nodejs.org/es/download/)
 
 #### Install node modules
 
