@@ -13,7 +13,7 @@ This project consists of an application that allows you to add, delete, edit, co
 
 ## Setup
 
-For this proyect we need dependencies as:
+For this proyect we need dependencies such as:
 
 #### Node
 Node.js  
@@ -31,4 +31,4 @@ For install node modules we have to enter the following commands in the terminal
 
 
 
-### And that would be all, these dependencies are installed after having cloned the repository.
+## 🧏🏻‍♂️ And that would be all, these dependencies are installed after having cloned the repository.🧏🏻‍♂️
