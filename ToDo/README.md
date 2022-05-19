@@ -13,10 +13,10 @@ node.js  - install [here](https://nodejs.org/es/download/)
 #### Install node modules
 
 For install node modules we have to enter the following commands in the terminal
-npm install ejs
-npm install express
-npm install morgan
-npm install --save-dev nodemon
-npm install --save-dev browserify
+1. npm install ejs
+2. npm install express
+3. npm install morgan
+4. npm install --save-dev nodemon
+5. npm install --save-dev browserify
 
 ### And that would be all, these dependencies are installed after having cloned the repository.
