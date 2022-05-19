@@ -4,16 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon src/index.js",
     "build": "browserify src/public/js/app.js -o src/public/js/bundle.js"
   },
   "keywords": [],
+  "eslintConfig": {
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+   
+  },
   "author": "Mateo Caicedo <mcaicedo@wawand.co> (https://github.com/MateoCaicedoW)",
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "jest": "^28.1.0",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
