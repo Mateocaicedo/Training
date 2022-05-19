@@ -24,27 +24,27 @@ Install Node.js [here](https://nodejs.org/es/download/)
    git clone https://github.com/MateoCaicedoW/Training
    ```
 For install node modules we have to enter the following commands in the terminal
-1. ```sh
+2. ```sh
    npm install ejs
    ``` 
-   
-2. ```sh
+
+3. ```sh
     npm install express
    ```  
 
-3. ```sh 
+4. ```sh 
     npm install morgan
     ```  
 
-4. ```sh 
+5. ```sh 
     npm install --save-dev nodemon
     ``` 
 
-5. ```sh  
+6. ```sh  
      npm install --save-dev browserify
     ``` 
 
-6. ```sh 
+7. ```sh 
     npm install jest
     ``` 
 
