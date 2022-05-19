@@ -151,10 +151,12 @@ INSERT INTO estudiante_asignatura values(NULL, 44,12),(NULL, 87,1),(NULL, 218,4)
 
 /*INDEXES*/
 alter table estudiante add index(nombre, apellido);
-
 create index index_nombre on asignatura(nombre);
-
-
+create index nombre on docente(nombre,apellido);
+create index nombre on facultad(nombre);
+create index nombre on decano(nombre,apellido);
+create index estudiante_asignatura on estudiante_asignatura(NrolD,codigo);
+create index docente_asignatura on docente_asignatura(cedulaDocente,codigo);
 /*Select*/
 /*Asignaturas dictadas por el docente "Juan Perez"*/
 select a.nombre from docente d, asignatura a, docente_asignatura d_a where d.nombre = 'Juan' 
@@ -185,7 +187,7 @@ inner join estudiante_asignatura e_a on e_a.codigo = a.codigo )
 inner join estudiante e on e.NrolD = e_a.NrolD) where f.nombre = 'Derecho' ;
 
 /*Asignaturas que se dan en la facultad de "Artes"*/
-select DISTINCT a.nombre, f.nombre
+select DISTINCT a.nombre
 from (((docente d
 inner join facultad f on f.numero = d.numero)
 inner join docente_asignatura a_s on a_s.cedulaDocente = d.cedulaDocente )
@@ -215,7 +217,7 @@ inner join estudiante e on e.NrolD = e_a.NrolD);
 select count(*) from estudiante where length(nombre) + length(apellido) >20 ;
 
 /*Una tabla donde se muestren el nombre de cada docente y cuantas asignaturas dicta.*/
-select d.cedulaDocente as CEDULA ,d.nombre,  d.apellido, count(a.nombre) as cantidad
+select d.nombre,  d.apellido, count(a.nombre) as cantidad
 from (docente_asignatura a_s
 inner join docente d on d.cedulaDocente = a_s.cedulaDocente
-inner join asignatura a on a.codigo = a_s.codigo) group by d.cedulaDocente ,d.nombre, CEDULA ;
+inner join asignatura a on a.codigo = a_s.codigo) group by d.cedulaDocente ,d.nombre ;
