@@ -49,7 +49,7 @@ For install node modules we have to enter the following commands in the terminal
     npm install jest
     ``` 
 
-#### Install
+#### Run
 For run this proyect we have enter the following commands in the terminal
 
 1. Build app
