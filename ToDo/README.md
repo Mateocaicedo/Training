@@ -26,7 +26,7 @@ For install node modules we have to enter the following commands in the terminal
 3. npm install morgan
 4. npm install --save-dev nodemon
 5. npm install --save-dev browserify
-6. npm install -D jest
+6. npm install jest
 
 
 
