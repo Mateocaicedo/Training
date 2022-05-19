@@ -3,7 +3,8 @@
 
 ## About the project
 This project consists of an application that allows you to add, delete, edit, complete and activate/deactivate assigned tasks. this project is built with html, css, js and node.
-##Setup
+
+## Setup
 For this proyect we need dependencies as:
 
 #### Node
