@@ -1,5 +1,6 @@
 package main
 
+<<<<<<< HEAD
 import (
 	"fmt"
 	//package for conversion from int to str
@@ -63,3 +64,12 @@ func imprimir() {
 	fmt.Println(y)
 	fmt.Println(z)
 }
+=======
+import(
+	"fmt"
+)
+
+func main()  {
+	fmt.Println("Hola mundo")
+}
+>>>>>>> da61181973c53e3a1683cef2ff318d5f2e48bab9
