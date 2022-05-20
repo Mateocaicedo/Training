@@ -13,10 +13,10 @@ func main() {
 	fmt.Println(add(n1, n2))
 }
 
-func add(n1, n2 int) int {
+func add(n1, n2 int) (resultado int) {
 
-	resultado := n1 + n2
+	resultado = n1 + n2
 
-	return resultado
+	return
 
 }
