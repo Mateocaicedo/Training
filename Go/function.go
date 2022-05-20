@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	var n1 int
@@ -12,7 +10,13 @@ func main() {
 	fmt.Print("Digita otro numero: ")
 	fmt.Scanln(&n2)
 
+	fmt.Println(add(n1, n2))
+}
+
+func add(n1, n2 int) int {
+
 	resultado := n1 + n2
 
-	fmt.Println("El resultado es: ", resultado)
+	return resultado
+
 }
