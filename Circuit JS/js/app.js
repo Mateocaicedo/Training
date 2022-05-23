@@ -7,54 +7,37 @@ let bulb3 = document.getElementById("bulb-off-3")
 let lineBulb1 = document.getElementById("line-bulb-1")
 let lineBulb2 = document.getElementById("line-bulb-2")
 let lineBulb3 = document.getElementById("line-bulb-3")
+
+
 switch1.addEventListener('click',(e)=>{
     e.preventDefault()
-    if (!switch1.classList.contains("on")) {
-        switch1.classList.add("on")
-        switch1.src = "./images/switch_on.png"
-        bulb1.src = "./images/light_bulb_on.png"
-        bulb1.style.maxWidth="60px"
-        lineBulb1.style.borderBottomColor="green"
-    }else if(switch1.classList.contains("on")){
-        switch1.classList.remove("on")
-        switch1.src = "./images/switch_off.png" 
-        bulb1.src = "./images/light_bulb_off.png"
-        bulb1.style.maxWidth="40px"
-        lineBulb1.style.borderBottomColor="black"
-    }
+    switcher(switch1,bulb1,lineBulb1)
     
 })
-switch2.addEventListener('click',(e)=>{
+switch2.addEventListener('click', (e)=>{
     e.preventDefault()
-    if (!switch2.classList.contains("on")) {
-        switch2.classList.add("on")
-        switch2.src = "./images/switch_on.png"
-        bulb2.src = "./images/light_bulb_on.png"
-        bulb2.style.maxWidth="60px"
-        lineBulb2.style.borderBottomColor="green"
-    }else if(switch2.classList.contains("on")){
-        switch2.classList.remove("on")
-        switch2.src = "./images/switch_off.png" 
-        bulb2.src = "./images/light_bulb_off.png"
-        bulb2.style.maxWidth="40px"
-        lineBulb2.style.borderBottomColor="black"
-    }
-    
+    switcher(switch2,bulb2,lineBulb2)
 })
 switch3.addEventListener('click',(e)=>{
     e.preventDefault()
-    if (!switch3.classList.contains("on")) {
-        switch3.classList.add("on")
-        switch3.src = "./images/switch_on.png"
-        bulb3.src = "./images/light_bulb_on.png"
-        bulb3.style.maxWidth="60px"
-        lineBulb3.style.borderLeftColor="green"
-    }else if(switch3.classList.contains("on")){
-        switch3.classList.remove("on")
-        switch3.src = "./images/switch_off.png" 
-        bulb3.src = "./images/light_bulb_off.png"
-        bulb3.style.maxWidth="40px"
-        lineBulb3.style.borderLeftColor="black"
-    }
-    
+    switcher(switch3,bulb3,lineBulb3)
 })
+
+
+function switcher(element,bulb, line) {
+    if (!element.classList.contains("on")) {
+        element.classList.add("on")
+        element.src = "./images/switch_on.png"
+        bulb.src = "./images/light_bulb_on.png"
+        bulb.style.maxWidth="60px"
+        line.style.borderLeftColor="green"
+        line.style.borderBottomColor="green"
+    }else if(element.classList.contains("on")){
+        element.classList.remove("on")
+        element.src = "./images/switch_off.png" 
+        bulb.src = "./images/light_bulb_off.png"
+        bulb.style.maxWidth="40px"
+        line.style.borderLeftColor="black"
+        line.style.borderBottomColor="black"
+    }
+}

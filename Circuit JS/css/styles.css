@@ -4,14 +4,11 @@
   
 }
 .r-2{
-    position: absolute;
     align-items: center; 
-    top: 230px;
 }
 .r-3{
-    position: absolute;
     align-items: flex-start; 
-    top: 420px;
+
 }
 .bulb{
     border: 1px solid black;
@@ -22,11 +19,10 @@
     align-items: center;
 }
 .container-content{
-    width: 70%;
-    margin: auto;
-    margin-top: 6%;
-    margin-bottom: 6%;
-    gap: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
 }
 .container-bulb{
@@ -37,37 +33,38 @@ img{
     max-width: 40px;    
 }
 
-#switch-2{
+.img-1{
     position: absolute;
-    top: 340px;
-    left: 1180px;
+    top: 10%;
+    left: 0%;
+}
+#switch-2{
+    top: 41%;
+    left: 78%;
 }
 #switch-3{
-    position: absolute;
     top: 40px;
     left: 280px;
 }
 #line-bulb-1{
-    top:80px;
-    left:250px;
+    left: 5%;
     border-bottom: 2px solid black;
-    height: 30px;
-    width: 57%;
+    top: 14%;
+    min-width: 71%;
     position: absolute;
 }
 #line-bulb-2{
-    top:340px;
-    left:810px;
+    top:65%;
+    left:52.3%;
     border-bottom: 2px solid black;
-    height: 30px;
-    width: 26.3%;
+    width: 43%;
     position: absolute;
 }
 #line-bulb-3{
-    top:77px;
-    left:300px;
+    top:8%;
+    left:10%;
     border-left: 2px solid black;
-    height: 342px;
+    height: 59%;
     position: absolute;
 }
 
@@ -99,5 +96,15 @@ img{
 }
 
 #img-3{
-   margin-left: 60px;
+   position: absolute;
+   left: 7%;
+   top: 0;
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
 }
