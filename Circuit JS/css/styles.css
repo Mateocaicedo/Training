@@ -100,6 +100,15 @@ img{
    left: 7%;
    top: 0;
 }
+#img-4{
+    position: absolute;
+    left: 83%;
+    top: 75%;
+ }
+
+#breaker{
+    max-width: 130px;
+}
 
 .content{
     position: absolute;
