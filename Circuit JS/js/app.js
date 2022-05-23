@@ -42,9 +42,9 @@ breaker.addEventListener('click',(e)=>{
     }else{
         breaker.classList.remove("on")
         breaker.src = "./images/breaker_off.png" 
-        off(switch1,bulb1,lineBulb1)
-        off(switch2,bulb2,lineBulb2)
-        off(switch3,bulb3,lineBulb3)
+        offBreaker(bulb1,lineBulb1)
+        offBreaker(bulb2,lineBulb2)
+        offBreaker(bulb3,lineBulb3)
         
         
     } 
@@ -58,23 +58,24 @@ function switcher(element,bulb, line) {
         if (!element.classList.contains("on") ) {
             on(element,bulb,line)
         }else if(element.classList.contains("on")){
-           off(element,bulb,line)
+            element.classList.remove("on")
+            element.src = "./images/switch_off.png" 
+            bulb.src = "./images/light_bulb_off.png"
+            bulb.style.maxWidth="40px"
+            line.style.borderLeftColor="black"
+            line.style.borderBottomColor="black"
             countOff(element)
         }
-    }else{
-        alert("Turn the circuit breaker on, please!")
     }
     
 }
 
-function off(element,bulb,line) {
-    element.classList.remove("on")
-    element.src = "./images/switch_off.png" 
+
+function offBreaker(bulb,line) {
     bulb.src = "./images/light_bulb_off.png"
     bulb.style.maxWidth="40px"
     line.style.borderLeftColor="black"
     line.style.borderBottomColor="black"
-   
 }
 
 function count(element) {
