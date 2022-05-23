@@ -59,7 +59,7 @@ function switcher(element,bulb, line) {
             on(element,bulb,line)
         }else if(element.classList.contains("on")){
            off(element,bulb,line)
-            countoff(element)
+            countOff(element)
         }
     }else{
         alert("Turn the circuit breaker on, please!")
@@ -86,7 +86,7 @@ function count(element) {
         count3=1
     }
 }
-function countoff(element) {
+function countOff(element) {
     if(element.getAttribute("id")== "switch-1"){
         count1=0
     }else if (element.getAttribute("id")== "switch-2") {
