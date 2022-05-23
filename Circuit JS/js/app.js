@@ -1,13 +1,24 @@
 let switch1 = document.getElementById("switch-1")
 let bulb1 = document.getElementById("bulb-1")
+
 let switch2 = document.getElementById("switch-2")
 let bulb2 = document.getElementById("bulb-off-2")
 let switch3 = document.getElementById("switch-3")
 let bulb3 = document.getElementById("bulb-off-3")
+
 let lineBulb1 = document.getElementById("line-bulb-1")
 let lineBulb2 = document.getElementById("line-bulb-2")
 let lineBulb3 = document.getElementById("line-bulb-3")
 let breaker = document.getElementById("breaker")
+
+let lineSwitch2 = document.getElementById("line-switch-2")
+let lineSwitch2_1 = document.getElementById("line-switch-2-1")
+let lineSwitch2_2 = document.getElementById("line-switch-2-2")
+let lineSwitch2_3 = document.getElementById("line-switch-2-3")
+let lineSwitch1 = document.getElementById("line-switch-1")
+let lineSwitch1_1 = document.getElementById("line-switch-1-1")
+let lineSwitch3 = document.getElementById("line-switch-3")
+let lineSwitch3_1 = document.getElementById("line-switch-3-1")
 
 let count1 = 0
 let count2 = 0
@@ -31,6 +42,8 @@ breaker.addEventListener('click',(e)=>{
     if (!breaker.classList.contains("on")) {
         breaker.classList.add("on")
         breaker.src = "./images/breaker_on.png"
+        breakerON(lineSwitch1,lineSwitch1_1,lineSwitch2,lineSwitch2_1,lineSwitch2_2,
+            lineSwitch2_3,lineSwitch3,lineSwitch3_1)
         if (count1==1) {
             on(switch1,bulb1,lineBulb1)
         }if (count2==1) {
@@ -45,6 +58,8 @@ breaker.addEventListener('click',(e)=>{
         offBreaker(bulb1,lineBulb1)
         offBreaker(bulb2,lineBulb2)
         offBreaker(bulb3,lineBulb3)
+        breakerOFF(lineSwitch1,lineSwitch1_1,lineSwitch2,lineSwitch2_1,lineSwitch2_2,
+            lineSwitch2_3,lineSwitch3,lineSwitch3_1)
         
         
     } 
@@ -65,6 +80,18 @@ function switcher(element,bulb, line) {
             line.style.borderLeftColor="black"
             line.style.borderBottomColor="black"
             countOff(element)
+        }
+    }else{
+         
+        if (!element.classList.contains("on") ) {
+            element.classList.add("on")
+            element.src = "./images/switch_on.png"  
+            count(element)      
+        }else if(element.classList.contains("on")){
+            element.classList.remove("on")
+            element.src = "./images/switch_off.png" 
+            countOff(element)
+            
         }
     }
     
@@ -104,4 +131,26 @@ function on(element,bulb,line) {
     line.style.borderLeftColor="green"
     line.style.borderBottomColor="green"
     count(element)
+}
+function  breakerON(lineSwitch1,lineSwitch1_1,lineSwitch2,lineSwitch2_1,lineSwitch2_2,
+    lineSwitch2_3,lineSwitch3,lineSwitch3_1) {
+        lineSwitch1.style.borderLeftColor="green"
+        lineSwitch1_1.style.borderBottomColor="green"
+        lineSwitch2.style.borderBottomColor="green"
+        lineSwitch2_1.style.borderLeftColor="green"
+        lineSwitch2_2.style.borderBottomColor="green"
+        lineSwitch2_3.style.borderLeftColor="green"
+        lineSwitch3.style.borderLeftColor="green"
+        lineSwitch3_1.style.borderBottomColor="green"
+}
+function  breakerOFF(lineSwitch1,lineSwitch1_1,lineSwitch2,lineSwitch2_1,lineSwitch2_2,
+    lineSwitch2_3,lineSwitch3,lineSwitch3_1) {
+        lineSwitch1.style.borderLeftColor="black"
+        lineSwitch1_1.style.borderBottomColor="black"
+        lineSwitch2.style.borderBottomColor="black"
+        lineSwitch2_1.style.borderLeftColor="black"
+        lineSwitch2_2.style.borderBottomColor="black"
+        lineSwitch2_3.style.borderLeftColor="black"
+        lineSwitch3.style.borderLeftColor="black"
+        lineSwitch3_1.style.borderBottomColor="black"
 }
