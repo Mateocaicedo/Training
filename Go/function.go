@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	var n1 int
 	var n2 int
-	fmt.Print("Digita un numero: ")
-	fmt.Scanln(&n1)
+	n3 := 0
+	fmt.Scanln(&n3, "Digita un numero")
 	fmt.Print("Digita otro numero: ")
 	fmt.Scanln(&n2)
 
