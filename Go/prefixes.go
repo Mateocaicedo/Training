@@ -26,10 +26,11 @@ func main() {
 			if nuevo != 0 {
 				cont_d++
 			}
+			if i != 0 {
+				cont_0++
+			}
 		}
-		for i := 1; i < len(n1); i++ {
-			cont_0++
-		}
+
 		if cont_0 == 1 {
 			for i := 0; i < cont_d; i++ {
 				resultado += n1[i]
