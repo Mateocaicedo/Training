@@ -1,1 +1,9 @@
-{"scripts":{"build":"browserify ./js/app.js -o ./js/bundle.js"},"dependencies":{"browserify":"^17.0.0","random-words":"^1.1.2"}}
+{
+    "scripts":{
+        "build":"browserify ./js/app.js -o ./js/bundle.js"
+    },
+    "dependencies":{
+        "browserify":"^17.0.0",
+        "random-words":"^1.1.2"
+    }
+}

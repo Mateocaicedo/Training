@@ -22,6 +22,9 @@ For install node modules we have to enter the following commands in the terminal
 2. ```sh
     npm install browserify
    ``` 
+3. ```sh
+    npm install random-words
+   ``` 
 
 #### Run
 For run this proyect we have enter the following commands in the terminal
