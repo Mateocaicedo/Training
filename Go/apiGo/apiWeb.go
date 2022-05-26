@@ -22,24 +22,21 @@ func main() {
 }
 
 func Json(w http.ResponseWriter, r *http.Request) {
+
 	player := Players{
-		Player{"", "Juan", "Hernandez", 12},
-		Player{"", "Marcos", "Llorente", 90},
-		Player{"", "Luis", "Avila", 82},
-		Player{"", "Alberto", "Mercado", 20},
-		Player{"", "Rosa", "Mercado", 30},
-		Player{"", "Marta", "Rosario", 30},
-		Player{"", "Isaias", "Perez", 40},
-		Player{"", "Samuel", "Benitez", 45},
-		Player{"", "Gonzalo", "Higuain", 25},
-		Player{"", "Alberto", "Rosado", 75},
-		Player{"", "Ismael", "Perez", 59},
+		Player{uuid.New().String(), "Juan", "Hernandez", 12},
+		Player{uuid.New().String(), "Marcos", "Llorente", 90},
+		Player{uuid.New().String(), "Luis", "Avila", 82},
+		Player{uuid.New().String(), "Alberto", "Mercado", 20},
+		Player{uuid.New().String(), "Rosa", "Mercado", 30},
+		Player{uuid.New().String(), "Marta", "Rosario", 30},
+		Player{uuid.New().String(), "Isaias", "Perez", 40},
+		Player{uuid.New().String(), "Samuel", "Benitez", 45},
+		Player{uuid.New().String(), "Gonzalo", "Higuain", 25},
+		Player{uuid.New().String(), "Alberto", "Rosado", 75},
+		Player{uuid.New().String(), "Ismael", "Perez", 59},
 	}
 
-	for i := 0; i < len(player); i++ {
-		id := uuid.New()
-		player[i].ID = id.String()
-	}
 	//fmt.Println(player[0].FirstName)
 	json.NewEncoder(w).Encode(player)
 }
