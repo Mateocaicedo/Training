@@ -22,13 +22,14 @@ func main() {
 
 func triangulo(l1, l2, l3 float64) (resultado string) {
 	if l1 > (l3+l2) || l2 > (l1+l3) || l3 > (l1+l2) {
-		return "No es un triagulo valido."
+		resultado = "No es un triagulo valido."
 	} else if l1 == l2 && l2 == l3 {
-		return "Es un triangulo equilatero."
+		resultado = "Es un triangulo equilatero."
 	} else if l1 == l2 || l2 == l3 || l3 == l1 {
-		return "Es un triangulo isoceles."
+		resultado = "Es un triangulo isoceles."
 	} else {
-		return "Es un triangulo escaleno."
+		resultado = "Es un triangulo escaleno."
 	}
+	return
 
 }
