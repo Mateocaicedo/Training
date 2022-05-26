@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 )
 
@@ -22,27 +23,32 @@ func main() {
 	r.HandleFunc("/players", Json).Methods(http.MethodGet)
 
 	server := &http.Server{
-		Addr:    ":8001",
+		Addr:    ":2000",
 		Handler: r,
 	}
-	log.Println("Listen localhost:8001")
+	log.Println("Listen ....")
 	server.ListenAndServe()
 
 }
 
 func Json(w http.ResponseWriter, r *http.Request) {
+
 	player := Players{
-		Player{"85592176-6b25-40db-b01e-a134432ef903", "Juan", "Hernandez", 12},
-		Player{"b53f9dd2-dd24-11ec-9d64-0242ac120002", "Marcos", "Llorente", 90},
-		Player{"bbe53a70-dd24-11ec-9d64-0242ac120002", "Luis", "Avila", 82},
-		Player{"c17342fc-dd24-11ec-9d64-0242ac120002", "Alberto", "Mercado", 20},
-		Player{"af15b9eb-653d-49a0-af11-d35b9f178b3e", "Rosa", "Mercado", 30},
-		Player{"7ab07328-03dc-472d-8ae3-c9bb13280007", "Marta", "Rosario", 30},
-		Player{"32317dd9-1ea2-45ba-9d7a-819f96095adf", "Isaias", "Perez", 40},
-		Player{"135b24dc-a123-4469-8bbc-97d39bcbbdd6", "Samuel", "Benitez", 45},
-		Player{"03b6c041-cdbe-4bc6-8ac3-bdc3af044343", "Gonzalo", "Higuain", 25},
-		Player{"4321ba01-1e37-4336-b7d5-10240d7af115", "Alberto", "Rosado", 75},
-		Player{"2c59af1e-e0d2-4439-8f80-7ec559a6493d", "Ismael", "Perez", 59},
+		Player{"", "Juan", "Hernandez", 12},
+		Player{"", "Marcos", "Llorente", 90},
+		Player{"", "Luis", "Avila", 82},
+		Player{"", "Alberto", "Mercado", 20},
+		Player{"", "Rosa", "Mercado", 30},
+		Player{"", "Marta", "Rosario", 30},
+		Player{"", "Isaias", "Perez", 40},
+		Player{"", "Samuel", "Benitez", 45},
+		Player{"", "Gonzalo", "Higuain", 25},
+		Player{"", "Alberto", "Rosado", 75},
+		Player{"", "Ismael", "Perez", 59},
+	}
+	for i := 0; i < len(player); i++ {
+		id := uuid.New()
+		player[i].ID = id.String()
 	}
 	//fmt.Println(player[0].FirstName)
 	json.NewEncoder(w).Encode(player)
