@@ -16,6 +16,8 @@ func (this *User) setName(name string) {
 	this.nombre = name
 }
 
+type ListUser []User
+
 func main() {
 	var name string
 	var lastname string
@@ -32,8 +34,9 @@ func main() {
 
 	user2 := User{2, "Mateo", "Robayo"}
 
+	ListUse := ListUser{*user, user2}
 	user.setName("baby")
 	a = append(a, *user)
 	a = append(a, user2)
-	fmt.Println(a)
+	fmt.Println(ListUse)
 }
