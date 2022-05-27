@@ -8,5 +8,6 @@ import (
 
 func main() {
 	http.HandleFunc("/players", actions.List)
+	http.HandleFunc("/players/gol", actions.List)
 	http.ListenAndServe(":3000", nil)
 }

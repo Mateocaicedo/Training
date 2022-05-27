@@ -7,10 +7,10 @@ type Player struct {
 	Level     int64
 }
 
-type Players []Player
+type ListPlayers []Player
 
-func StaticPlayers() Players {
-	P := Players{
+func Players() ListPlayers {
+	P := ListPlayers{
 		Player{"deae98b1-feab-47d0-a64b-5808bb12d612", "Juan", "Hernandez", 12},
 		Player{"9a42e66f-f020-471b-893e-2e04c2e24307", "Marcos", "Llorente", 90},
 		Player{"07ec6cb3-71fa-458d-bd0a-afcf1f7c3e5d", "Luis", "Avila", 82},
