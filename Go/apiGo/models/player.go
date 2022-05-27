@@ -7,6 +7,11 @@ type Player struct {
 	Level     int64
 }
 
+type Template struct {
+	Status  int
+	Data    ListPlayers
+	Message string
+}
 type ListPlayers []Player
 
 func Players() ListPlayers {
