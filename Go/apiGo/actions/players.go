@@ -8,5 +8,5 @@ import (
 )
 
 func List(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(models.GetPlayers())
+	json.NewEncoder(w).Encode(models.StaticPlayers())
 }
