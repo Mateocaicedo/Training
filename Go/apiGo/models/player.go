@@ -1,9 +1,6 @@
-package main
+package models
 
 import (
-	"encoding/json"
-	"net/http"
-
 	"github.com/google/uuid"
 )
 
@@ -16,14 +13,8 @@ type Player struct {
 
 type Players []Player
 
-func main() {
-	http.HandleFunc("/players", Json)
-	http.ListenAndServe(":3000", nil)
-}
-
-func Json(w http.ResponseWriter, r *http.Request) {
-
-	player := Players{
+func GetPlayers() Players {
+	P := Players{
 		Player{uuid.New(), "Juan", "Hernandez", 12},
 		Player{uuid.New(), "Marcos", "Llorente", 90},
 		Player{uuid.New(), "Luis", "Avila", 82},
@@ -36,7 +27,6 @@ func Json(w http.ResponseWriter, r *http.Request) {
 		Player{uuid.New(), "Alberto", "Rosado", 75},
 		Player{uuid.New(), "Ismael", "Perez", 59},
 	}
+	return P
 
-	//fmt.Println(player[0].FirstName)
-	json.NewEncoder(w).Encode(player)
 }
