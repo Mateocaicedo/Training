@@ -12,6 +12,7 @@ type Template struct {
 	Data    ListPlayers
 	Message string
 }
+
 type ListPlayers []Player
 
 func Players() ListPlayers {
