@@ -9,10 +9,15 @@ import (
 )
 
 func List(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(models.Template{Status: 200, Data: models.Players(), Message: ""})
+	w.Header().Set("Content-Type", "application/json")
+	err := json.NewEncoder(w).Encode(models.Template{Status: 200, Data: models.Players(), Message: ""})
+	if err != nil {
+		json.NewEncoder(w).Encode(models.Template{Status: 400, Data: models.ListPlayers{}, Message: "Bad Request"})
+	}
 }
 
 func ListID(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	players := models.Players()
 	//log.Println(params["id"])
